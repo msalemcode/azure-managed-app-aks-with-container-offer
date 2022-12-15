@@ -1,1 +1,1 @@
-# azure-managed-app-aks-with-container-offer-
+# azure-managed-app-aks-with-container-offer
