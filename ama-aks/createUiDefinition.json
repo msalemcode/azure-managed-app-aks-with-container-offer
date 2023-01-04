@@ -114,6 +114,61 @@
             "visible": true
           }
         ]
+      },
+      {
+        "name": "ExtensionConfiguration",
+        "label": "Extension settings",
+        "elements": [
+          {
+            "name": "extensionResourceName",
+            "type": "Microsoft.Common.TextBox",
+            "label": "Extension Resource name",
+            "defaultValue": "",
+            "toolTip": "Only alphanumeric characters are allowed, and the value must be 6-30 characters long.",
+            "constraints": {
+              "required": true,
+              "regex": "^[a-z0-9A-Z]{6,30}$",
+              "validationMessage": "Only alphanumeric characters are allowed, and the value must be 6-30 characters long."
+            },
+            "visible": true
+          },
+          {
+            "name": "title",
+            "type": "Microsoft.Common.TextBox",
+            "label": "Extension Resource Title",
+            "defaultValue": "Azure Vote App",
+            "toolTip": "title",
+            "constraints": {
+              "required": true,
+              "regex": "^[a-z0-9A-Z]{6,30}$",
+              "validationMessage": "Only alphanumeric characters are allowed, and the value must be 6-30 characters long."
+            }
+          },
+          {
+            "name": "value1",
+            "type": "Microsoft.Common.TextBox",
+            "label": "Extension Resource Parameter",
+            "defaultValue": "Cats",
+            "toolTip": "Azure Vote Parameter",
+            "constraints": {
+              "required": true,
+              "regex": "^[a-z0-9A-Z]{6,30}$",
+              "validationMessage": "Only alphanumeric characters are allowed, and the value must be 6-30 characters long."
+            }
+          },
+          {
+            "name": "value2",
+            "type": "Microsoft.Common.TextBox",
+            "label": "Extension Resource name",
+            "defaultValue": "Dogs",
+            "toolTip": "Azure Vote Parameter",
+            "constraints": {
+              "required": true,
+              "regex": "^[a-z0-9A-Z]{6,30}$",
+              "validationMessage": "Only alphanumeric characters are allowed, and the value must be 6-30 characters long."
+            }
+          }
+        ]
       }
     ],
     "outputs": {
@@ -121,7 +176,11 @@
       "aksName": "[basics('aksName')]",
       "nodeSize": "[basics('nodeSize')]",
       "nodeCount": "[basics('nodeCount')]",
-      "managedIdentity": "[steps('managedIdentitySettings').appManagedIdentity]"
+      "managedIdentity": "[steps('managedIdentitySettings').appManagedIdentity]",
+      "extensionName":"[steps('ExtensionConfiguration').Name]",
+      "extensionTitle":"[steps('ExtensionConfiguration').title]",
+      "extensionVoteValue1": "[steps('ExtensionConfiguration').value1]",
+      "extensionVoteValue2": "[steps('ExtensionConfiguration').value2]"
 
     }
   }
